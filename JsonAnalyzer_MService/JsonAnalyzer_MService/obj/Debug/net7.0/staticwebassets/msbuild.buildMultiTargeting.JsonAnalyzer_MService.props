@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\JsonAnalyzer_MService.props" />
+</Project>
