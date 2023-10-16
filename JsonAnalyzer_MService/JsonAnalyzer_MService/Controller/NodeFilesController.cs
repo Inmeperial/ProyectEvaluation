@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using JsonAnalyzer_MService.Models;
+using Newtonsoft.Json;
 
 namespace JsonAnalyzer_MService.Controller
 {
@@ -22,14 +23,13 @@ namespace JsonAnalyzer_MService.Controller
 
         // GET: api/NodeFiles
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<NodeFile>>> GetNodeFiles()
+        public async Task<ActionResult<string>> GetNodeFiles()
         {
-          if (_context.NodeFiles == null)
-          {
-              return NotFound();
-          }
-            return await _context.NodeFiles.ToListAsync();
-        }
+            Task<string> json;
 
+            using StreamReader reader = new StreamReader("MyData/sample.complejo.json");
+            json = reader.ReadToEndAsync();
+            return await json;
+        }
     }
 }

@@ -1,7 +1,7 @@
 const URL = 'https://localhost:7055/api/NodeFiles';
 
-function displayItems() {
-  console.error('displayItems');
+function displayItems(data) {
+  console.error(data);
 }
 
 // eslint-disable-next-line no-unused-vars
