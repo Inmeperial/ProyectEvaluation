@@ -27,16 +27,3 @@
 .footerIcons img:first-child {
     margin-left: 10px;
 }
-
-ul.footerIcons a {
-    display: inline-block;
-}
-
-ul.footerIcons a:after {
-    content: '|';
-    color: #fff;
-}
-
-ul.footerIcons a:last-child:after {
-    content: ' ';
-}
