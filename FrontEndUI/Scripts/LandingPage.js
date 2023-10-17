@@ -1,6 +1,14 @@
 const URL = 'https://localhost:7055/api/NodeFiles';
 const maxForTreeRecu = 300;
 
+function addEventToElement(element) {
+  element.addEventListener('click', function (e) {
+    e.stopPropagation(); // needed to stop the propagation to others nodes.
+    this.querySelector('.nested').classList.toggle('active');
+    this.classList.toggle('caret-down');
+  });
+}
+
 function recuMappingNodes(fatherNode, node, actualCount, maxCount) {
   if (actualCount >= maxCount) {
     return;
@@ -14,6 +22,15 @@ function recuMappingNodes(fatherNode, node, actualCount, maxCount) {
     const spanElement = document.createElement('span');
     spanElement.innerText = node.name;
     liElement.appendChild(spanElement);
+    spanElement.className = 'caret';
+    const ulElement = document.createElement('ul');
+    ulElement.className = 'nested';
+    spanElement.appendChild(ulElement);
+    addEventToElement(spanElement);
+
+    for (let index = 0; index < node.files.length; index += 1) {
+      recuMappingNodes(ulElement, node.files[index], actualCount + 1, maxCount);
+    }
   }
 }
 
