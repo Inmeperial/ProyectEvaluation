@@ -22,14 +22,16 @@ function recuMappingNodes(fatherNode, node, actualCount, maxCount) {
     const spanElement = document.createElement('span');
     spanElement.innerText = node.name;
     liElement.appendChild(spanElement);
-    spanElement.className = 'caret';
-    const ulElement = document.createElement('ul');
-    ulElement.className = 'nested';
-    spanElement.appendChild(ulElement);
-    addEventToElement(spanElement);
+    if (node.files != null && node.files.length > 0) {
+      spanElement.className = 'caret';
+      const ulElement = document.createElement('ul');
+      ulElement.className = 'nested';
+      spanElement.appendChild(ulElement);
+      addEventToElement(spanElement);
 
-    for (let index = 0; index < node.files.length; index += 1) {
-      recuMappingNodes(ulElement, node.files[index], actualCount + 1, maxCount);
+      for (let index = 0; index < node.files.length; index += 1) {
+        recuMappingNodes(ulElement, node.files[index], actualCount + 1, maxCount);
+      }
     }
   }
 }
