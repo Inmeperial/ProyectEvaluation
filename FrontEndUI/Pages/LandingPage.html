@@ -2,21 +2,35 @@
 <html>
 
 <head>
-    <title>CSS Template</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="../../Styles/LandingPage.css" />
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LandingPage</title>
+    <link rel="stylesheet" href="../Styles/LandingPage.css">
 </head>
 
 <body>
-    <div>
-        <button id='buttonJson' onclick="GetNodes(output); this.disabled=true;">ButtonPrint</button>
-    </div>
-    <div>
-        <ul id="output"></ul>
-    </div>
+    <header class="header">
+        <nav class="navbar">
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#" class="nav-link">First Section</a>
+                </li>
+                <li class="nav-item">
+                    <a href="TreeViewPage.html" class="nav-link">Second Section</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#" class="nav-link">Third Section</a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </nav>
+    </header>
     <footer>
-        <script src="../../Scripts/LandingPage.js"></script>
+        <script src="../Scripts/LandingPage.Js"></script>
     </footer>
 </body>
 
